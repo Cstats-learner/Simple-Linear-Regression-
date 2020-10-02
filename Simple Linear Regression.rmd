@@ -1,7 +1,7 @@
 ---
 title: "assignment 1"
 author: "Anshika"
-problem: "2.12"
+problem: "2.4"
 date: "September 20, 2020"
 output:
   html_document: default
