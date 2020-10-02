@@ -1,0 +1,45 @@
+---
+title: "assignment 1"
+author: "Anshika"
+problem: "2.12"
+date: "September 20, 2020"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(Rmisc)
+data=read.csv("data1.csv")
+str(data)
+dim(data)
+is.null(data)
+summary(data)
+attach(data)
+with(data,plot(x1,y,xlab="engine displacement(x1)",ylab="gasoline mileage(y)"))
+boxplot(y)
+plot(density((y)))
+shapiro.test(y)
+reg1 <- lm(y~x1,data=data) 
+summary(reg1)
+anova(reg1)
+with(data,plot(x1,y,xlab="engine displacement(x1)",ylab="gasoline mileage(y)"))
+abline(reg1)
+par(mfrow=c(2,2))
+plot(reg1)
+coef(reg1)
+#fitted line:- y = 33.722677-0.047360*x1
+mean(reg1$residuals)
+shapiro.test(reg1$residuals)
+CI(y,ci=0.95)
+newdata = data.frame(x1=275)
+predict(reg1, newdata, interval="confidence",level = 0.95) 
+
+ 
+```
+
